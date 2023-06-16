@@ -1,0 +1,80 @@
+import turtle
+from turtle import Turtle
+import random
+
+t = True
+screen1 = Turtle()
+turtle.pencolor(0,0,0)
+turtle.colormode(255)
+print(screen1)
+colors = ("LightSeaGreen", "SeaGreen", "wheat", "Red", "Blue", "Purple")
+def draw_shape(n_sides):
+    for _ in range(n_sides):
+        turtle.color(random.choice(colors))
+        turtle.forward(50)
+        turtle.right(360 / (n_sides))
+
+
+def random_walk():
+    def random_color():
+        r = random.randint(0,255)
+        g = random.randint(0,255)
+        b = random.randint(0,255)
+        my_tuple = (r,g,b)
+        return my_tuple
+    for x in range(200):
+        turtle.pencolor(random_color())
+        turtle.speed(100)
+        turtle.pensize(10)
+        turtle.forward(50)
+        turtle.right(random.randint(0,4)*90)
+
+def spirograph():
+    turtle.speed(500)
+    def random_color():
+        r = random.randint(0,255)
+        g = random.randint(0,255)
+        b = random.randint(0,255)
+        my_tuple = (r,g,b)
+        return my_tuple
+    for x in range (0,180):
+        turtle.color(random_color())
+        turtle.circle(100)
+        turtle.right(2)
+        turtle.forward(2)
+
+def damien_hirst():
+    def random_color():
+        r = random.randint(0,255)
+        g = random.randint(0,255)
+        b = random.randint(0,255)
+        my_tuple = (r,g,b)
+        return my_tuple
+    turtle.penup()
+    turtle.setx(-370)
+    turtle.sety(270)
+    turtle.speed(500)
+    def row():
+        for x in range(10):
+            turtle.penup()
+            turtle.forward(50)
+            turtle.pendown()
+            turtle.dot(10, random_color())
+    for x in range(10):
+        turtle.speed(1000)
+        row()
+        turtle.penup()
+        turtle.setheading(270)
+        turtle.forward(50)
+        turtle.setheading(180)
+        turtle.forward(-50)
+        row()
+        turtle.penup()
+        turtle.setheading(270)
+        turtle.forward(50)
+        turtle.setheading(0)
+        turtle.forward(-50)
+
+damien_hirst()
+while t == True:
+    print(screen1)
